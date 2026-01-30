@@ -39,9 +39,17 @@ export function Navigation() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          <Link href="/" className="group flex items-center gap-2">
-            <span className={`font-serif text-3xl font-bold tracking-tight ${isScrolled ? "text-white" : "text-white"}`}>
-              Velluxe <span className="text-gold">Decor</span>
+          <Link href="/" className="group flex flex-col items-center">
+            <span className="font-serif text-3xl font-semibold tracking-tight text-white">
+              Velluxe
+            </span>
+            <div className="flex gap-[3px] my-1">
+              <div className="w-[20px] h-[2px] bg-[#D4AF37]" />
+              <div className="w-[20px] h-[2px] bg-[#F5F5F5]" />
+              <div className="w-[20px] h-[2px] bg-[#C5A572]" />
+            </div>
+            <span className="font-serif text-lg font-light italic text-[#D4AF37] leading-none">
+              Decor
             </span>
           </Link>
 

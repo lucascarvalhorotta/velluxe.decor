@@ -36,9 +36,9 @@ export function ContactForm() {
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
-      className="bg-white p-8 md:p-10 rounded-2xl shadow-xl shadow-navy-900/5 border border-border"
+      className="bg-white/10 p-8 md:p-10 rounded-2xl shadow-xl backdrop-blur-md border border-white/20"
     >
-      <h3 className="text-2xl font-serif font-semibold text-navy-900 mb-6">Solicite seu Orçamento</h3>
+      <h3 className="text-2xl font-serif font-semibold text-white mb-6 text-center">Solicite seu Orçamento</h3>
       
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
@@ -47,9 +47,13 @@ export function ContactForm() {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-navy-900">Nome Completo</FormLabel>
+                <FormLabel className="text-white">Nome Completo</FormLabel>
                 <FormControl>
-                  <Input placeholder="Seu nome" className="bg-gray-50 border-gray-200 focus:border-primary/50 focus:ring-primary/20 h-12" {...field} />
+                  <Input 
+                    placeholder="Seu nome" 
+                    className="bg-white/10 border-white/20 focus:border-[#D4AF37]/50 focus:ring-[#D4AF37]/20 h-12 text-white placeholder:text-white/60" 
+                    {...field} 
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -62,11 +66,11 @@ export function ContactForm() {
               name="phone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-navy-900">Telefone</FormLabel>
+                  <FormLabel className="text-white">Telefone</FormLabel>
                   <FormControl>
                     <Input 
                       placeholder="(11) 99999-9999" 
-                      className="bg-gray-50 border-gray-200 focus:border-primary/50 focus:ring-primary/20 h-12" 
+                      className="bg-white/10 border-white/20 focus:border-[#D4AF37]/50 focus:ring-[#D4AF37]/20 h-12 text-white placeholder:text-white/60" 
                       {...field} 
                     />
                   </FormControl>
@@ -80,9 +84,13 @@ export function ContactForm() {
               name="city"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-navy-900">Cidade/Bairro</FormLabel>
+                  <FormLabel className="text-white">Cidade/Bairro</FormLabel>
                   <FormControl>
-                    <Input placeholder="São Paulo, SP" className="bg-gray-50 border-gray-200 focus:border-primary/50 focus:ring-primary/20 h-12" {...field} />
+                    <Input 
+                      placeholder="São Paulo, SP" 
+                      className="bg-white/10 border-white/20 focus:border-[#D4AF37]/50 focus:ring-[#D4AF37]/20 h-12 text-white placeholder:text-white/60" 
+                      {...field} 
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -95,9 +103,14 @@ export function ContactForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-navy-900">E-mail</FormLabel>
+                <FormLabel className="text-white">E-mail</FormLabel>
                 <FormControl>
-                  <Input placeholder="seu@email.com" type="email" className="bg-gray-50 border-gray-200 focus:border-primary/50 focus:ring-primary/20 h-12" {...field} />
+                  <Input 
+                    placeholder="seu@email.com" 
+                    type="email" 
+                    className="bg-white/10 border-white/20 focus:border-[#D4AF37]/50 focus:ring-[#D4AF37]/20 h-12 text-white placeholder:text-white/60" 
+                    {...field} 
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -109,11 +122,11 @@ export function ContactForm() {
             name="message"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-navy-900">Mensagem (Opcional)</FormLabel>
+                <FormLabel className="text-white">Mensagem (Opcional)</FormLabel>
                 <FormControl>
                   <Textarea 
                     placeholder="Conte um pouco sobre o seu projeto..." 
-                    className="bg-gray-50 border-gray-200 focus:border-primary/50 focus:ring-primary/20 min-h-[120px] resize-none" 
+                    className="bg-white/10 border-white/20 focus:border-[#D4AF37]/50 focus:ring-[#D4AF37]/20 min-h-[120px] resize-none text-white placeholder:text-white/60" 
                     {...field} 
                   />
                 </FormControl>
@@ -125,7 +138,7 @@ export function ContactForm() {
           <Button 
             type="submit" 
             disabled={mutation.isPending}
-            className="w-full h-14 text-base font-semibold bg-primary hover:bg-primary/90 text-navy-900 shadow-lg shadow-primary/20 transition-all duration-300 hover:-translate-y-1"
+            className="w-full h-14 text-base font-semibold bg-[#D4AF37] hover:bg-[#C5A572] text-[#1a2231] shadow-lg shadow-[#D4AF37]/20 transition-all duration-300 hover:-translate-y-1"
           >
             {mutation.isPending ? "Enviando..." : "Solicitar Consultoria Gratuita"}
           </Button>
