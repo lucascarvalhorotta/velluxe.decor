@@ -141,28 +141,12 @@ export default function Home() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
-                {
-                  number: "01",
-                  title: "Consulta Inicial",
-                  desc: "Conversamos sobre suas necessidades, estilo e orçamento. Mostramos amostras de tecidos e opções de mecanismos."
-                },
-                {
-                  number: "02",
-                  title: "Medição & Projeto",
-                  desc: "Fazemos a medição técnica precisa e desenvolvemos o projeto personalizado para o seu espaço."
-                },
-                {
-                  number: "03",
-                  title: "Produção",
-                  desc: "Confeccionamos suas cortinas ou persianas com atenção aos mínimos detalhes e controle rigoroso de qualidade."
-                },
-                {
-                  number: "04",
-                  title: "Instalação",
-                  desc: "Nossa equipe realiza a instalação com profissionalismo, garantindo acabamento perfeito e sua total satisfação."
-                }
+                { number: "01", title: "Contato", desc: "Você entra em contato via formulário ou WhatsApp." },
+                { number: "02", title: "Visita", desc: "Agendamos uma visita técnica para medição." },
+                { number: "03", title: "Projeto", desc: "Apresentamos tecidos e soluções ideais." },
+                { number: "04", title: "Entrega", desc: "Confecção e instalação em até 15 dias." },
               ].map((step, idx) => (
-                <motion.div
+                <motion.div 
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -233,11 +217,9 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="group relative overflow-hidden rounded-xl shadow-xl aspect-[4/5] cursor-pointer"
               >
-                <img 
-                  src={project.url}
-                  alt="Projeto Velluxe Decor"
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                <div 
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                  style={{ backgroundImage: `url('${project.url}')` }}
                 />
                 <div className="absolute inset-0 bg-[#1a2231]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-center p-6 backdrop-blur-[2px]">
                   <h4 className="text-2xl font-serif text-white font-bold mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">{project.title}</h4>
@@ -249,8 +231,68 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SOCIAL PROOF */}
-      <section className="py-24 bg-white">
+      {/* WHY US / CHECKLIST */}
+      <section className="py-24 bg-[#1a2231] text-white overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="w-full lg:w-1/2 relative"
+            >
+              <div className="absolute top-4 left-4 w-full h-full border-2 border-[#D4AF37]/30 rounded-lg -z-0 translate-x-4 translate-y-4" />
+              <img 
+                src="/images/7.png" 
+                alt="Detalhe de cortina de luxo" 
+                loading="lazy"
+                className="rounded-lg shadow-2xl relative z-10 w-full"
+              />
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="w-full lg:w-1/2"
+            >
+              <span className="text-[#D4AF37] tracking-widest uppercase text-sm font-medium mb-2 block">Diferenciais Exclusivos</span>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8 leading-tight">
+                Transforme sua casa em um <span className="text-[#D4AF37]">refúgio de luxo</span>
+              </h2>
+              
+              <ul className="space-y-6">
+                {[
+                  "Atendimento consultivo personalizado.",
+                  "Acervo com mais de 500 opções de tecidos importados e nacionais.",
+                  "Mecanismos motorizados compatíveis com Alexa e Google Home.",
+                  "Garantia estendida de 5 anos em todos os produtos.",
+                  "Pagamento facilitado em até 10x sem juros.",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-4">
+                    <CheckCircle2 className="w-6 h-6 text-[#D4AF37] shrink-0 mt-1" />
+                    <p className="text-gray-300 text-lg">{item}</p>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-10">
+                <Button 
+                  className="bg-[#D4AF37] text-[#1a2231] hover:bg-[#C5A572] px-8 py-6 text-lg font-semibold rounded-none" 
+                  onClick={() => document.querySelector('#contact')?.scrollIntoView({behavior: 'smooth'})}
+                >
+                  Agendar Visita Técnica
+                </Button>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section id="testimonials" className="py-24 bg-[#F5F5F5]">
         <div className="container mx-auto px-4">
           <SectionHeading 
             subtitle="Depoimentos"
