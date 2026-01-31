@@ -1,19 +1,26 @@
 import express, { type Express } from "express";
-import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
+
+// 1. Substituição do __dirname para ES Modules (O que estava dando erro 500)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export function serveStatic(app: Express) {
-  const distPath = path.resolve(__dirname, "public");
-  if (!fs.existsSync(distPath)) {
-    throw new Error(
-      `Could not find the build directory: ${distPath}, make sure to build the client first`,
-    );
-  }
+  // 2. Ajuste do caminho: A Vercel coloca o build na pasta 'public' na raiz
+  // Subimos um nível (..) para sair da pasta 'server' e achar a 'public'
+  const distPath = path.resolve(__dirname, "..", "public");
 
+  // Servir arquivos estáticos (CSS, JS, Imagens)
   app.use(express.static(distPath));
 
-  // fall through to index.html if the file doesn't exist
-  app.use("/{*path}", (_req, res) => {
+  // 3. Rota "catch-all": Se não achar o arquivo, manda o index.html (SPA)
+  // Mudado de "/{*path}" para "*" que é o padrão do Express
+  app.get("*", (req, res, next) => {
+    // Se a requisição for para a API, não manda o index.html
+    if (req.path.startsWith("/api")) {
+      return next();
+    }
     res.sendFile(path.resolve(distPath, "index.html"));
   });
 }
