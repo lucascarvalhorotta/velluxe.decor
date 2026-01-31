@@ -44,9 +44,13 @@ export async function registerRoutes(
         body: JSON.stringify({ ...input, source: "vercel_contact_form" }),
       });
 
-      await Promise.all([emailPromise, webhookPromise]);
-
+      // 1. Responde o usuário IMEDIATAMENTE (Botão destrava e limpa o form)
       res.status(201).json({ message: "Solicitação enviada com sucesso!" });
+
+      // 2. Faz o trabalho pesado em "segundo plano" (Sem o await na frente)
+      Promise.all([emailPromise, webhookPromise]).catch(err => 
+        console.error("Erro no envio em background:", err)
+      );
     } catch (err) {
       console.error("Erro no processamento:", err);
       if (err instanceof z.ZodError) {
