@@ -194,33 +194,33 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
             {[
               {
-                url: "/images/1.png",
+                url: "/images/1.jpg",
                 title: "",
                 desc: ""
               },
               {
-                url: "/images/2.png",
+                url: "/images/2.jpg",
                 title: "",
                 desc: ""
               },
               {
-                url: "/images/3.png",
+                url: "/images/3.jpg",
                 title: "",
                 desc: ""
               },
               {
-                url: "/images/4.png",
+                url: "/images/4.jpg",
                 title: "",
                 desc: ""
               },
               {
-                url: "/images/5.png",
+                url: "/images/5.jpg",
                 title: "",
                 desc: ""
                 
               },
               {
-                url: "/images/6.png",
+                url: "/images/6.jpg",
                 title: "",
                 desc: ""
               }
@@ -262,7 +262,7 @@ export default function Home() {
             >
               <div className="absolute top-4 left-4 w-full h-full border-2 border-[#D4AF37]/30 rounded-lg -z-0 translate-x-4 translate-y-4" />
               <img 
-                src="/images/7.png" 
+                src="/images/7.jpg" 
                 alt="Detalhe de cortina de luxo" 
                 loading="lazy"
                 className="rounded-lg shadow-2xl relative z-10 w-full"
