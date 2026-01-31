@@ -194,33 +194,33 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
             {[
               {
-                url: "/images/1.jpg",
+                url: "/images/1.png",
                 title: "",
                 desc: ""
               },
               {
-                url: "/images/2.jpg",
+                url: "/images/2.png",
                 title: "",
                 desc: ""
               },
               {
-                url: "/images/3.jpg",
+                url: "/images/3.png",
                 title: "",
                 desc: ""
               },
               {
-                url: "/images/4.jpg",
+                url: "/images/4.png",
                 title: "",
                 desc: ""
               },
               {
-                url: "/images/5.jpg",
+                url: "/images/5.png",
                 title: "",
                 desc: ""
                 
               },
               {
-                url: "/images/6.jpg",
+                url: "/images/6.png",
                 title: "",
                 desc: ""
               }
@@ -249,8 +249,68 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SOCIAL PROOF */}
-      <section className="py-24 bg-white">
+      {/* WHY US / CHECKLIST */}
+      <section className="py-24 bg-[#1a2231] text-white overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="w-full lg:w-1/2 relative"
+            >
+              <div className="absolute top-4 left-4 w-full h-full border-2 border-[#D4AF37]/30 rounded-lg -z-0 translate-x-4 translate-y-4" />
+              <img 
+                src="/images/7.png" 
+                alt="Detalhe de cortina de luxo" 
+                loading="lazy"
+                className="rounded-lg shadow-2xl relative z-10 w-full"
+              />
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="w-full lg:w-1/2"
+            >
+              <span className="text-[#D4AF37] tracking-widest uppercase text-sm font-medium mb-2 block">Diferenciais Exclusivos</span>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8 leading-tight">
+                Transforme sua casa em um <span className="text-[#D4AF37]">refúgio de luxo</span>
+              </h2>
+              
+              <ul className="space-y-6">
+                {[
+                  "Atendimento consultivo personalizado.",
+                  "Acervo com mais de 500 opções de tecidos importados e nacionais.",
+                  "Mecanismos motorizados compatíveis com Alexa e Google Home.",
+                  "Garantia estendida de 5 anos em todos os produtos.",
+                  "Pagamento facilitado em até 10x sem juros.",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-4">
+                    <CheckCircle2 className="w-6 h-6 text-[#D4AF37] shrink-0 mt-1" />
+                    <p className="text-gray-300 text-lg">{item}</p>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-10">
+                <Button 
+                  className="bg-[#D4AF37] text-[#1a2231] hover:bg-[#C5A572] px-8 py-6 text-lg font-semibold rounded-none" 
+                  onClick={() => document.querySelector('#contact')?.scrollIntoView({behavior: 'smooth'})}
+                >
+                  Agendar Visita Técnica
+                </Button>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section id="testimonials" className="py-24 bg-[#F5F5F5]">
         <div className="container mx-auto px-4">
           <SectionHeading 
             subtitle="Depoimentos"
