@@ -10,77 +10,40 @@ const httpServer = createServer(app);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Helper de log simples
 export function log(message: string, source = "express") {
-  const formattedTime = new Date().toLocaleTimeString("en-US", {
-    hour: "numeric",
-    minute: "2-digit",
-    second: "2-digit",
-    hour12: true,
-  });
-  console.log(`${formattedTime} [${source}] ${message}`);
+  console.log(`${new Date().toLocaleTimeString()} [${source}] ${message}`);
 }
 
+// Middleware de Logs
 app.use((req, res, next) => {
-  const start = Date.now();
-  const path = req.path;
-  let capturedJsonResponse: Record<string, any> | undefined = undefined;
-
-  const originalResJson = res.json;
-  res.json = function (bodyJson, ...args) {
-    capturedJsonResponse = bodyJson;
-    return originalResJson.apply(res, [bodyJson, ...args]);
-  };
-
   res.on("finish", () => {
-    const duration = Date.now() - start;
-    if (path.startsWith("/api")) {
-      let logLine = `${req.method} ${path} ${res.statusCode} in ${duration}ms`;
-      if (capturedJsonResponse) {
-        logLine += ` :: ${JSON.stringify(capturedJsonResponse)}`;
-      }
-
-      log(logLine);
+    if (req.path.startsWith("/api")) {
+      log(`${req.method} ${req.path} ${res.statusCode}`);
     }
   });
-
   next();
 });
 
-(async () => {
-  await registerRoutes(httpServer, app);
+// REGISTRO DAS ROTAS (Sem o async/await que trava a Vercel no topo)
+registerRoutes(httpServer, app);
 
-  app.use((err: any, _req: Request, res: Response, next: NextFunction) => {
-    const status = err.status || err.statusCode || 500;
-    const message = err.message || "Internal Server Error";
+// Tratamento de Erros
+app.use((err: any, _req: Request, res: Response, next: NextFunction) => {
+  const status = err.status || err.statusCode || 500;
+  res.status(status).json({ message: err.message || "Internal Server Error" });
+});
 
-    console.error("Internal Server Error:", err);
-
-    if (res.headersSent) {
-      return next(err);
-    }
-
-    return res.status(status).json({ message });
+// Lógica de Produção vs Dev
+if (process.env.NODE_ENV === "production") {
+  serveStatic(app);
+} else {
+  // Em dev, o Vite é carregado dinamicamente para não quebrar a Vercel
+  import("./vite.js").then(({ setupVite }) => {
+    setupVite(httpServer, app);
+    const port = 5173;
+    httpServer.listen(port, "0.0.0.0", () => log(`🚀 Dev em http://localhost:${port}`));
   });
+}
 
-  // importantly only setup vite in development and after
-  // setting up all the other routes so the catch-all route
-  // doesn't interfere with the other routes
-  if (process.env.NODE_ENV === "production") {
-    serveStatic(app);
-  } else {
-    const { setupVite } = await import("./vite");
-    await setupVite(httpServer, app);
-  }
-
-  // CORRIGIDO PARA WINDOWS - Removido reusePort
-  // SÓ LIGA O LISTEN SE NÃO ESTIVER NA VERCEL (PRODUÇÃO)
-  if (process.env.NODE_ENV !== "production") {
-    const port = parseInt(process.env.PORT || "5173", 10);
-    httpServer.listen(port, "0.0.0.0", () => {
-      log(`🚀 Server running at http://localhost:${port}`);
-    });
-  }
-})();
-
-// ESSA LINHA É OBRIGATÓRIA PARA A PASTA /API FUNCIONAR
 export default app;
