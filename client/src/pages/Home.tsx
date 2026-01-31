@@ -194,33 +194,33 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
             {[
               {
-                url: "/images/1.png",
+                url: "/images/1.jpg",
                 title: "",
                 desc: ""
               },
               {
-                url: "/images/2.png",
+                url: "/images/2.jpg",
                 title: "",
                 desc: ""
               },
               {
-                url: "/images/3.png",
+                url: "/images/3.jpg",
                 title: "",
                 desc: ""
               },
               {
-                url: "/images/4.png",
+                url: "/images/4.jpg",
                 title: "",
                 desc: ""
               },
               {
-                url: "/images/5.png",
+                url: "/images/5.jpg",
                 title: "",
                 desc: ""
                 
               },
               {
-                url: "/images/6.png",
+                url: "/images/6.jpg",
                 title: "",
                 desc: ""
               }
