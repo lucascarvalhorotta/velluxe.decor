@@ -26,6 +26,16 @@ export function ContactForm() {
   function onSubmit(data: InsertContactRequest) {
     mutation.mutate(data, {
       onSuccess: () => {
+        // Manda o evento pro Google Tag Manager
+        (window as any).dataLayer = (window as any).dataLayer || [];
+        (window as any).dataLayer.push({
+          event: "form_submission_success",
+          formName: "contato_velluxe",
+          // Se quiser mandar o e-mail ou cidade pro GTM (opcional):
+          userEmail: data.email,
+          userCity: data.city
+        });
+
         form.reset();
       },
     });
