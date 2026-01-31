@@ -3,7 +3,7 @@ import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
 
-const app = express();
+export const app = express(); // Adicione o 'export' aqui
 const httpServer = createServer(app);
 
 declare module "http" {
@@ -91,4 +91,12 @@ app.use((req, res, next) => {
     log(`🚀 Server running at http://localhost:${port}`);
     console.log(`\n✅ Abra no navegador: http://localhost:${port}\n`);
   });
+// No final do arquivo, envolva o listen:
+if (process.env.NODE_ENV !== "production") {
+  const port = parseInt(process.env.PORT || "5173", 10);
+  httpServer.listen(port, "0.0.0.0", () => {
+    log(`🚀 Server running at http://localhost:${port}`);
+  });
+}
+
 })();
