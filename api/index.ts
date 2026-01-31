@@ -1,2 +1,2 @@
-import { app } from "../server/index.js"; // Verifique se seu server/index.ts exporta o 'app'
+import { app } from "../server/index.js";
 export default app;

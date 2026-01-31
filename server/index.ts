@@ -73,17 +73,14 @@ app.use((req, res, next) => {
   }
 
   // CORRIGIDO PARA WINDOWS - Removido reusePort
-  const port = parseInt(process.env.PORT || "5173", 10);
-  httpServer.listen(port, "127.0.0.1", () => {
-    log(`🚀 Server running at http://localhost:${port}`);
-    console.log(`\n✅ Abra no navegador: http://localhost:${port}\n`);
-  });
-// No final do arquivo, envolva o listen:
-if (process.env.NODE_ENV !== "production") {
-  const port = parseInt(process.env.PORT || "5173", 10);
-  httpServer.listen(port, "0.0.0.0", () => {
-    log(`🚀 Server running at http://localhost:${port}`);
-  });
-}
-
+  // SÓ LIGA O LISTEN SE NÃO ESTIVER NA VERCEL (PRODUÇÃO)
+  if (process.env.NODE_ENV !== "production") {
+    const port = parseInt(process.env.PORT || "5173", 10);
+    httpServer.listen(port, "0.0.0.0", () => {
+      log(`🚀 Server running at http://localhost:${port}`);
+    });
+  }
 })();
+
+// ESSA LINHA É OBRIGATÓRIA PARA A PASTA /API FUNCIONAR
+export default app;
