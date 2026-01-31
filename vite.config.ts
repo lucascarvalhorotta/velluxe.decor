@@ -4,6 +4,8 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  root: './',
+  
   plugins: [react()],
   
   resolve: {
@@ -18,54 +20,27 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          // Separa React em chunk próprio
           'react-vendor': ['react', 'react-dom', 'react/jsx-runtime'],
-          
-          // Separa Framer Motion (pesado!)
           'motion': ['framer-motion'],
-          
-          // Separa ícones
           'icons': ['lucide-react'],
-          
-          // Separa router se tiver
-          // 'router': ['wouter'],
         },
       },
     },
     
-    // Aumenta limite de warning (evita avisos desnecessários)
+    // Aumenta limite de warning
     chunkSizeWarningLimit: 1000,
     
-    // Minificação mais agressiva
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true, // Remove console.logs em produção
-        drop_debugger: true,
-      },
-    },
+    // Output directory
+    outDir: 'dist',
+    emptyOutDir: true,
     
-    // Sourcemaps leves
+    // Sourcemaps desabilitados pra produção
     sourcemap: false,
-    
-    // CSS code splitting
-    cssCodeSplit: true,
   },
 
   // OTIMIZAÇÕES DE SERVIDOR DEV
   server: {
     port: 5173,
-    strictPort: true,
     host: true,
-  },
-
-  // OTIMIZAÇÕES GERAIS
-  optimizeDeps: {
-    include: [
-      'react',
-      'react-dom',
-      'framer-motion',
-      'lucide-react',
-    ],
   },
 });
