@@ -12,7 +12,14 @@ export const contactRequests = pgTable("contact_requests", {
   createdAt: timestamp("created_at").defaultNow(),
 });
 
-export const insertContactRequestSchema = createInsertSchema(contactRequests).omit({
+// Schema de inserção com as validações de bloqueio que você pediu
+export const insertContactRequestSchema = createInsertSchema(contactRequests, {
+  name: z.string().min(1, "O nome é obrigatório"),
+  phone: z.string().min(8, "Telefone inválido"),
+  city: z.string().min(2, "Informe sua cidade"),
+  email: z.string().email("E-mail inválido"),
+  message: z.string().optional(),
+}).omit({
   id: true,
   createdAt: true,
 });

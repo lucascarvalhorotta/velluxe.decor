@@ -13,6 +13,7 @@ export function ContactForm() {
 
   const form = useForm<InsertContactRequest>({
     resolver: zodResolver(insertContactRequestSchema),
+    mode: "onChange", // Valida enquanto o usuário digita
     defaultValues: {
       name: "",
       email: "",
@@ -51,7 +52,7 @@ export function ContactForm() {
                 <FormControl>
                   <Input 
                     placeholder="Seu nome" 
-                    className="bg-white/10 border-white/20 focus:border-[#D4AF37]/50 focus:ring-[#D4AF37]/20 h-12 text-white placeholder:text-white/60" 
+                    className="bg-white/10 border-white/20 text-white placeholder:text-white/60" 
                     {...field} 
                   />
                 </FormControl>
@@ -70,7 +71,7 @@ export function ContactForm() {
                   <FormControl>
                     <Input 
                       placeholder="(11) 99999-9999" 
-                      className="bg-white/10 border-white/20 focus:border-[#D4AF37]/50 focus:ring-[#D4AF37]/20 h-12 text-white placeholder:text-white/60" 
+                      className="bg-white/10 border-white/20 text-white" 
                       {...field} 
                     />
                   </FormControl>
@@ -87,8 +88,8 @@ export function ContactForm() {
                   <FormLabel className="text-white">Cidade/Estado</FormLabel>
                   <FormControl>
                     <Input 
-                      placeholder="Cascavel, Pr" 
-                      className="bg-white/10 border-white/20 focus:border-[#D4AF37]/50 focus:ring-[#D4AF37]/20 h-12 text-white placeholder:text-white/60" 
+                      placeholder="Cascavel, PR" 
+                      className="bg-white/10 border-white/20 text-white" 
                       {...field} 
                     />
                   </FormControl>
@@ -108,7 +109,7 @@ export function ContactForm() {
                   <Input 
                     placeholder="seu@email.com" 
                     type="email" 
-                    className="bg-white/10 border-white/20 focus:border-[#D4AF37]/50 focus:ring-[#D4AF37]/20 h-12 text-white placeholder:text-white/60" 
+                    className="bg-white/10 border-white/20 text-white" 
                     {...field} 
                   />
                 </FormControl>
@@ -125,8 +126,8 @@ export function ContactForm() {
                 <FormLabel className="text-white">Mensagem (Opcional)</FormLabel>
                 <FormControl>
                   <Textarea 
-                    placeholder="Conte um pouco sobre o seu projeto..." 
-                    className="bg-white/10 border-white/20 focus:border-[#D4AF37]/50 focus:ring-[#D4AF37]/20 min-h-[120px] resize-none text-white placeholder:text-white/60" 
+                    placeholder="Conte sobre seu projeto..." 
+                    className="bg-white/10 border-white/20 text-white min-h-[100px]" 
                     {...field} 
                   />
                 </FormControl>
@@ -137,8 +138,9 @@ export function ContactForm() {
 
           <Button 
             type="submit" 
-            disabled={mutation.isPending}
-            className="w-full h-14 text-base font-semibold bg-[#D4AF37] hover:bg-[#C5A572] text-[#1a2231] shadow-lg shadow-[#D4AF37]/20 transition-all duration-300 hover:-translate-y-1"
+            // O segredo está aqui: o botão só habilita se tudo estiver preenchido e correto
+            disabled={mutation.isPending || !form.formState.isValid}
+            className="w-full h-14 bg-[#D4AF37] hover:bg-[#C5A572] text-[#1a2231] font-bold disabled:opacity-50"
           >
             {mutation.isPending ? "Enviando..." : "Solicitar Consultoria Gratuita"}
           </Button>
