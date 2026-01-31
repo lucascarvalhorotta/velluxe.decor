@@ -12,18 +12,18 @@ export async function registerRoutes(
     try {
       const input = api.contact.submit.input.parse(req.body);
       
-      // 1. Configuração do E-mail (Nodemailer)
+      // 1. Configuração do E-mail
       const transporter = nodemailer.createTransport({
-        host: "smtp.gmail.com", // Exemplo com Gmail
+        host: "smtp.gmail.com",
         port: 465,
         secure: true,
         auth: {
           user: process.env.EMAIL_USER,
-          pass: process.env.EMAIL_PASS, // Use "Senha de Aplicativo"
+          pass: process.env.EMAIL_PASS,
         },
       });
 
-      // 2. Disparo em paralelo (E-mail + n8n Webhook)
+      // 2. Prepara os disparos
       const emailPromise = transporter.sendMail({
         from: `"Velluxe Site" <${process.env.EMAIL_USER}>`,
         to: "lcsrcarvalho@gmail.com",
@@ -44,22 +44,25 @@ export async function registerRoutes(
         body: JSON.stringify({ ...input, source: "vercel_contact_form" }),
       });
 
-      // 1. Responde o usuário IMEDIATAMENTE (Botão destrava e limpa o form)
+      // 3. O PULO DO GATO: Espera o envio ANTES de responder a Vercel
+      // Se não usar o await aqui, a Vercel desliga o servidor antes do e-mail sair
+      await Promise.all([emailPromise, webhookPromise]);
+      
+      console.log("✅ Tudo enviado com sucesso");
+
+      // 4. Só agora avisa o front-end que deu certo
       res.status(201).json({ message: "Solicitação enviada com sucesso!" });
 
-      // 2. Faz o trabalho pesado em "segundo plano" (Sem o await na frente)
-      Promise.all([emailPromise, webhookPromise]).catch(err => 
-        console.error("Erro no envio em background:", err)
-      );
     } catch (err) {
-      console.error("Erro no processamento:", err);
+      console.error("❌ Erro detectado:", err);
       if (err instanceof z.ZodError) {
         res.status(400).json({
           message: err.errors[0].message,
           field: err.errors[0].path.join('.'),
         });
       } else {
-        res.status(500).json({ message: "Erro ao enviar formulário." });
+        // Se der erro no Nodemailer ou n8n, vai cair aqui e te avisar no log
+        res.status(500).json({ message: "Erro ao enviar formulário. Verifique os logs." });
       }
     }
   });
