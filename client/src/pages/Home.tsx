@@ -393,7 +393,7 @@ export default function Home() {
               <ul className="space-y-4 font-light">
                 <li className="flex items-center gap-3">
                   <Phone size={18} className="text-[#D4AF37]" />
-                  <span>(11) 99999-9999</span>
+                  <span>(45) 99811-3954</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail size={18} className="text-[#D4AF37]" />
