@@ -2,6 +2,7 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes.js";
 import { serveStatic } from "./static";
 import { createServer } from "http";
+import { api } from "../shared/routes.js";
 
 export const app = express(); // Adicione o 'export' aqui
 const httpServer = createServer(app);
