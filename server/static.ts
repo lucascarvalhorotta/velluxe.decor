@@ -16,7 +16,7 @@ export function serveStatic(app: Express) {
 
   // 3. Rota "catch-all": Se não achar o arquivo, manda o index.html (SPA)
   // Mudado de "/{*path}" para "*" que é o padrão do Express
-  app.get("/:path*", (req, res, next) => {
+  app.get(/^(?!\/api).+/, (req, res, next) => {
     // Se a requisição for para a API, não manda o index.html
     if (req.path.startsWith("/api")) {
       return next();
