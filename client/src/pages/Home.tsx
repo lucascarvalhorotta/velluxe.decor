@@ -201,6 +201,7 @@ export default function Home() {
                 url: "/images/5.png",
                 title: "",
                 desc: ""
+                
               },
               {
                 url: "/images/6.png",
@@ -245,6 +246,7 @@ export default function Home() {
               <img 
                 src="/images/7.png" 
                 alt="Detalhe de cortina de luxo" 
+                loading="lazy"
                 className="rounded-lg shadow-2xl relative z-10 w-full"
               />
             </motion.div>

@@ -1,40 +1,71 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import path from "path";
-import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import path from 'path';
 
+// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    runtimeErrorOverlay(),
-    ...(process.env.NODE_ENV !== "production" &&
-    process.env.REPL_ID !== undefined
-      ? [
-          await import("@replit/vite-plugin-cartographer").then((m) =>
-            m.cartographer(),
-          ),
-          await import("@replit/vite-plugin-dev-banner").then((m) =>
-            m.devBanner(),
-          ),
-        ]
-      : []),
-  ],
+  plugins: [react()],
+  
   resolve: {
     alias: {
-      "@": path.resolve(import.meta.dirname, "client", "src"),
-      "@shared": path.resolve(import.meta.dirname, "shared"),
-      "@assets": path.resolve(import.meta.dirname, "attached_assets"),
+      '@': path.resolve(__dirname, './src'),
     },
   },
-  root: path.resolve(import.meta.dirname, "client"),
+
+  // OTIMIZAÇÕES DE BUILD
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
-    emptyOutDir: true,
-  },
-  server: {
-    fs: {
-      strict: true,
-      deny: ["**/.*"],
+    // Code splitting inteligente
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Separa React em chunk próprio
+          'react-vendor': ['react', 'react-dom', 'react/jsx-runtime'],
+          
+          // Separa Framer Motion (pesado!)
+          'motion': ['framer-motion'],
+          
+          // Separa ícones
+          'icons': ['lucide-react'],
+          
+          // Separa router se tiver
+          // 'router': ['wouter'],
+        },
+      },
     },
+    
+    // Aumenta limite de warning (evita avisos desnecessários)
+    chunkSizeWarningLimit: 1000,
+    
+    // Minificação mais agressiva
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true, // Remove console.logs em produção
+        drop_debugger: true,
+      },
+    },
+    
+    // Sourcemaps leves
+    sourcemap: false,
+    
+    // CSS code splitting
+    cssCodeSplit: true,
+  },
+
+  // OTIMIZAÇÕES DE SERVIDOR DEV
+  server: {
+    port: 5173,
+    strictPort: true,
+    host: true,
+  },
+
+  // OTIMIZAÇÕES GERAIS
+  optimizeDeps: {
+    include: [
+      'react',
+      'react-dom',
+      'framer-motion',
+      'lucide-react',
+    ],
   },
 });
