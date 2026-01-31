@@ -1,6 +1,33 @@
-node_modules
-dist
+# Dependências
+node_modules/
+.npm
+.pnpm-store/
+
+# Build
+dist/
+.output/
+.vercel/
+.netlify/
+
+# Ambiente
+.env
+.env.local
+.env*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Sistema
 .DS_Store
-server/public
-vite.config.ts.*
-*.tar.gz
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporários
+*.tmp
+.cache/

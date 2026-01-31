@@ -5,6 +5,23 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Ruler, ShieldCheck, Wrench, ChevronRight, Phone, Mail, MapPin, Instagram, CheckCircle2 } from "lucide-react";
 
+function VelluxeLogo({ className = "h-16 w-auto" }: { className?: string }) {
+  return (
+    <svg 
+      viewBox="400 1100 2400 1000"
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="xMidYMid meet"
+    >
+      <path fill="#D4AF37" d="M490.73,1613.42c69.93-22.03,141.23-39.62,213.39-52.63,72.31-13.03,145.42-21.39,218.8-25.1,73.69-3.73,147.54-2.62,221.11,2.88,74.09,5.54,147.79,15.19,221.18,26.63,74.1,11.55,147.91,24.87,221.82,37.59,73.83,12.71,147.8,24.79,222.15,34.04,66.04,8.21,132.38,13.91,198.92,15.53,65.01,1.58,130.18-.59,194.82-7.87,63.76-7.18,127.05-19.13,188.52-37.67,60.63-18.29,119.55-42.96,174.36-74.77,13.47-7.82,26.67-16.07,39.61-24.73,10.64-7.12.64-24.45-10.09-17.27-52.24,34.95-108.88,62.9-168.06,83.98-59.91,21.34-122.1,35.96-184.96,45.33-63.57,9.48-127.97,13.39-192.22,13.49-64.72.1-129.42-3.77-193.77-10.57-73.73-7.8-147.05-19.06-220.16-31.31-73.66-12.35-147.15-25.74-220.85-37.85-73.8-12.13-147.86-23.01-222.32-30.29-73.67-7.21-147.66-10.56-221.68-8.89-73.67,1.67-147.2,8.1-220.08,18.95-72.23,10.76-143.78,26.05-214.08,45.82-17.33,4.87-34.57,10.03-51.74,15.44-12.23,3.85-7.01,23.17,5.32,19.29h0Z"/>
+      <path fill="#D4AF37" d="M490.73,1668.64c69.93-22.03,141.23-39.62,213.39-52.63,72.31-13.03,145.42-21.39,218.8-25.1,73.69-3.73,147.54-2.62,221.11,2.88,74.09,5.54,147.79,15.19,221.18,26.63,74.1,11.55,147.91,24.87,221.82,37.59,73.83,12.71,147.8,24.79,222.15,34.04,66.04,8.21,132.38,13.91,198.92,15.53,65.01,1.58,130.18-.59,194.82-7.87,63.76-7.18,127.05-19.13,188.52-37.67,60.63-18.29,119.55-42.96,174.36-74.77,13.47-7.82,26.67-16.07,39.61-24.73,10.64-7.12.64-24.45-10.09-17.27-52.24,34.95-108.88,62.9-168.06,83.98-59.91,21.34-122.1,35.96-184.96,45.33-63.57,9.48-127.97,13.39-192.22,13.49-64.72.1-129.42-3.77-193.77-10.57-73.73-7.8-147.05-19.06-220.16-31.31-73.66-12.35-147.15-25.74-220.85-37.85-73.8-12.13-147.86-23.01-222.32-30.29-73.67-7.21-147.66-10.56-221.68-8.89-73.67,1.67-147.2,8.1-220.08,18.95-72.23,10.76-143.78,26.05-214.08,45.82-17.33,4.87-34.57,10.03-51.74,15.44-12.23,3.85-7.01,23.17,5.32,19.29h0Z"/>
+      <path fill="#D4AF37" d="M490.73,1723.92c69.93-22.03,141.23-39.62,213.39-52.63,72.31-13.03,145.42-21.39,218.8-25.1,73.69-3.73,147.54-2.62,221.11,2.88,74.09,5.54,147.79,15.19,221.18,26.63,74.1,11.55,147.91,24.87,221.82,37.59,73.83,12.71,147.8,24.79,222.15,34.04,66.04,8.21,132.38,13.91,198.92,15.53,65.01,1.58,130.18-.59,194.82-7.87,63.76-7.18,127.05-19.13,188.52-37.67,60.63-18.29,119.55-42.96,174.36-74.77,13.47-7.82,26.67-16.07,39.61-24.73,10.64-7.12.64-24.45-10.09-17.27-52.24,34.95-108.88,62.9-168.06,83.98-59.91,21.34-122.1,35.96-184.96,45.33-63.57,9.48-127.97,13.39-192.22,13.49-64.72.1-129.42-3.77-193.77-10.57-73.73-7.8-147.05-19.06-220.16-31.31-73.66-12.35-147.15-25.74-220.85-37.85-73.8-12.13-147.86-23.01-222.32-30.29-73.67-7.21-147.66-10.56-221.68-8.89-73.67,1.67-147.2,8.1-220.08,18.95-72.23,10.76-143.78,26.05-214.08,45.82-17.33,4.87-34.57,10.03-51.74,15.44-12.23,3.85-7.01,23.17,5.32,19.29h0Z"/>
+      <text fontFamily="'Cormorant Garamond', serif" fontSize="700" fontWeight="600" fill="#FFFFFF" x="488" y="1440">Velluxe</text>
+      <text fontFamily="'Cormorant Garamond', serif" fontSize="300" fontWeight="500" fontStyle="italic" fill="#ffffff" x="1217" y="1965">Decor</text>
+    </svg>
+  );
+}
+
 export default function Home() {
   return (
     <div className="min-h-screen font-sans bg-background selection:bg-gold-500/30 selection:text-navy-900">
@@ -16,7 +33,7 @@ export default function Home() {
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
           style={{ 
-            backgroundImage: `url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2069&auto=format&fit=crop')`,
+            backgroundImage: `url('/images/hero-bg.jpeg')`,
           }}
         />
         
@@ -161,34 +178,34 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
             {[
               {
-                url: "https://images.unsplash.com/photo-1513161455079-7dc1de15ef3e?q=80&w=1888&auto=format&fit=crop",
-                title: "Living Contemporâneo",
-                desc: "Cortina em Linho Puro"
+                url: "/images/1.png",
+                title: "",
+                desc: ""
               },
               {
-                url: "https://images.unsplash.com/photo-1505693416388-b0346efee535?q=80&w=2070&auto=format&fit=crop",
-                title: "Suíte Master",
-                desc: "Blackout 100% com Voil"
+                url: "/images/2.png",
+                title: "",
+                desc: ""
               },
               {
-                url: "https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=1932&auto=format&fit=crop",
-                title: "Home Office",
-                desc: "Persiana Rolô Screen"
+                url: "/images/3.png",
+                title: "",
+                desc: ""
               },
               {
-                url: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop",
-                title: "Sala de Jantar",
-                desc: "Prega Americana Clássica"
+                url: "/images/4.png",
+                title: "",
+                desc: ""
               },
               {
-                url: "https://images.unsplash.com/photo-1631679706909-1844bbd07221?q=80&w=2080&auto=format&fit=crop",
-                title: "Varanda Gourmet",
-                desc: "Rolô com Proteção Solar"
+                url: "/images/5.png",
+                title: "",
+                desc: ""
               },
               {
-                url: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1992&auto=format&fit=crop",
-                title: "Loft Industrial",
-                desc: "Linho Cinza Wave"
+                url: "/images/6.png",
+                title: "",
+                desc: ""
               }
             ].map((project, idx) => (
               <motion.div
@@ -197,7 +214,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 viewport={{ once: true }}
-                className="group relative h-80 overflow-hidden rounded-lg cursor-pointer shadow-md"
+                className="group relative overflow-hidden rounded-xl shadow-xl aspect-[4/5] cursor-pointer"
               >
                 <div 
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
@@ -226,7 +243,7 @@ export default function Home() {
             >
               <div className="absolute top-4 left-4 w-full h-full border-2 border-[#D4AF37]/30 rounded-lg -z-0 translate-x-4 translate-y-4" />
               <img 
-                src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?q=80&w=2070&auto=format&fit=crop" 
+                src="/images/7.png" 
                 alt="Detalhe de cortina de luxo" 
                 className="rounded-lg shadow-2xl relative z-10 w-full"
               />
@@ -246,7 +263,7 @@ export default function Home() {
               
               <ul className="space-y-6">
                 {[
-                  "Atendimento consultivo personalizado por designers de interiores.",
+                  "Atendimento consultivo personalizado.",
                   "Acervo com mais de 500 opções de tecidos importados e nacionais.",
                   "Mecanismos motorizados compatíveis com Alexa e Google Home.",
                   "Garantia estendida de 5 anos em todos os produtos.",
@@ -344,7 +361,7 @@ export default function Home() {
             <ContactForm />
 
             <p className="text-white/70 text-sm text-center mt-8 font-light">
-              Resposta em até 2 horas • Atendimento de seg a sex 9h-18h
+               Atendimento de seg a sex 9h-18h
             </p>
           </div>
         </div>
@@ -355,9 +372,7 @@ export default function Home() {
         <div className="container mx-auto px-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
             <div>
-              <span className="font-serif text-3xl font-bold tracking-tight text-white mb-6 block">
-                Velluxe <span className="text-[#D4AF37]">Decor</span>
-              </span>
+              <VelluxeLogo className="h-12 w-auto mb-6" />
               <p className="leading-relaxed font-light">
                 Excelência em cortinas e persianas sob medida para ambientes de alto padrão em Cascavel e região.
               </p>
@@ -384,11 +399,7 @@ export default function Home() {
                   <Mail size={18} className="text-[#D4AF37]" />
                   <span>contato@velluxedecor.com.br</span>
                 </li>
-                <li className="flex items-center gap-3">
-                  <MapPin size={18} className="text-[#D4AF37]" />
-                  <span>Showroom em Cascavel, PR</span>
-                </li>
-              </ul>
+                </ul>
             </div>
           </div>
           

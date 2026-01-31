@@ -84,10 +84,10 @@ export function ContactForm() {
               name="city"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white">Cidade/Bairro</FormLabel>
+                  <FormLabel className="text-white">Cidade/Estado</FormLabel>
                   <FormControl>
                     <Input 
-                      placeholder="São Paulo, SP" 
+                      placeholder="Cascavel, Pr" 
                       className="bg-white/10 border-white/20 focus:border-[#D4AF37]/50 focus:ring-[#D4AF37]/20 h-12 text-white placeholder:text-white/60" 
                       {...field} 
                     />
