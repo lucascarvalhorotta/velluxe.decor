@@ -195,34 +195,34 @@ export default function Home() {
             {[
               {
                 url: "/images/1.jpg",
-                title: "",
-                desc: ""
+                title: "Cortina Prega Macho",
+                desc: "Sala de Estar"
               },
               {
                 url: "/images/2.jpg",
-                title: "",
-                desc: ""
+                title: "Cortina Prega Macho",
+                desc: "Suíte Casal"
               },
               {
                 url: "/images/3.jpg",
-                title: "",
-                desc: ""
+                title: "Cortina Prega Macho com Xale",
+                desc: "Suíte Casal"
               },
               {
                 url: "/images/4.jpg",
-                title: "",
-                desc: ""
+                title: "Cortina Wave",
+                desc: "Área Gourmet"
               },
               {
                 url: "/images/5.jpg",
-                title: "",
-                desc: ""
+                title: "Cortina Prega Macho com Xale",
+                desc: "Closet"
                 
               },
               {
                 url: "/images/6.jpg",
-                title: "",
-                desc: ""
+                title: "Cortina Prega Macho",
+                desc: "Suíte Casal"
               }
             ].map((project, idx) => (
               <motion.div
