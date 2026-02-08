@@ -287,7 +287,7 @@ export default function Home() {
                   "Acervo com mais de 500 opções de tecidos importados e nacionais.",
                   "Mecanismos motorizados compatíveis com Alexa e Google Home.",
                   "Garantia estendida de 5 anos em todos os produtos.",
-                  "Pagamento facilitado em até 10x sem juros.",
+                  "Pagamento facilitado em até 4x sem juros ou até 10x com juros nos cartões.",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-4">
                     <CheckCircle2 className="w-6 h-6 text-[#D4AF37] shrink-0 mt-1" />
