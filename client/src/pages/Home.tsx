@@ -320,7 +320,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             {[
               {
-                text: "Sem dúvida, o nosso melhor fornecedor. Já realizamos o projeto do nosso escritório com eles e o nível de entrega é incomparável.",
+                text: "Serviço foi bem feito.. material parecer ser de excelente qualidade.. estou a 10 meses sem apresentar nenhum problema, tanto no material como de instalação",
                 name: "Vivi",
                 role: "",
                 stars: 5
