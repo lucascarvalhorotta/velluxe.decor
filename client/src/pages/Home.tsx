@@ -1,5 +1,6 @@
+import { lazy, Suspense } from "react";
 import { Navigation } from "@/components/Navigation";
-import { ContactForm } from "@/components/ContactForm";
+const ContactForm = lazy(() => import("@/components/ContactForm").then(module => ({ default: module.ContactForm })));
 import { SectionHeading } from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -382,7 +383,9 @@ export default function Home() {
               </p>
             </div>
             
-            <ContactForm />
+            <Suspense fallback={<div className="text-white text-center py-10">Carregando formulário...</div>}>
+  <ContactForm />
+</Suspense>
 
             <p className="text-white/70 text-sm text-center mt-8 font-light">
                Atendimento de seg a sex 9h-18h
