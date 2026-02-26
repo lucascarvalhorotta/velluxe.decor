@@ -320,21 +320,21 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             {[
               {
-                text: "O atendimento foi impecável desde o primeiro contato. As cortinas transformaram completamente minha sala. A qualidade do linho é impressionante.",
-                name: "Mariana S.",
-                role: "Arquiteta",
+                text: "Sem dúvida, o nosso melhor fornecedor. Já realizamos o projeto do nosso escritório com eles e o nível de entrega é incomparável.",
+                name: "Vivi",
+                role: "",
                 stars: 5
               },
               {
-                text: "Profissionalismo raro de encontrar. A instalação foi rápida, limpa e o resultado final superou minhas expectativas. Recomendo de olhos fechados.",
-                name: "Roberto A.",
-                role: "Empresário",
+                text: "O resultado final ficou impecável. Um trabalho excelente que transformou o ambiente, superando todas as expectativas assim que vi o projeto pronto.",
+                name: "Guilherme",
+                role: "",
                 stars: 5
               },
               {
-                text: "Fiz todo o meu apartamento com a Velluxe. A motorização das persianas ficou perfeita, integro tudo pelo celular. Excelente custo-benefício pelo padrão entregue.",
-                name: "Carla M.",
-                role: "Médica",
+                text: "É raro encontrar esse nível de comprometimento no mercado. Sou muito grato pelo atendimento, pois o padrão de profissionalismo de vocês é realmente diferenciado.",
+                name: "Carla",
+                role: "",
                 stars: 5
               }
             ].map((review, idx) => (
