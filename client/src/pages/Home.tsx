@@ -30,12 +30,12 @@ export default function Home() {
 
       {/* HERO SECTION */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image - Modern Luxury Living Room */}
-        <div 
-          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-          style={{ 
-            backgroundImage: `url('/images/hero-bg.webp')`,
-          }}
+        {/* Background Image alterado para tag IMG para acelerar o LCP */}
+        <img 
+          src="/images/hero-bg.webp" 
+          alt="Ambiente de luxo com cortinas sob medida"
+          className="absolute inset-0 z-0 w-full h-full object-cover"
+          fetchPriority="high"
         />
         
         {/* Overlay gradient */}
@@ -383,9 +383,7 @@ export default function Home() {
               </p>
             </div>
             
-            <Suspense fallback={<div className="text-white text-center py-10">Carregando formulário...</div>}>
-  <ContactForm />
-</Suspense>
+            <ContactForm />
 
             <p className="text-white/70 text-sm text-center mt-8 font-light">
                Atendimento de seg a sex 9h-18h
