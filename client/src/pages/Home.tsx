@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Navigation } from "@/components/Navigation";
 const ContactForm = lazy(() => import("@/components/ContactForm").then(module => ({ default: module.ContactForm })));
+const MotionDiv = lazy(() => import("framer-motion").then(mod => ({ default: mod.motion.div })));
 import { SectionHeading } from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
