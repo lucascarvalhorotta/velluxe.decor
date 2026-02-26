@@ -195,33 +195,33 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
             {[
               {
-                url: "/images/1.jpg",
+                url: "/images/1.webp",
                 title: "Cortina Prega Macho",
                 desc: "Sala de Estar"
               },
               {
-                url: "/images/2.jpg",
+                url: "/images/2.webp",
                 title: "Cortina Prega Macho",
                 desc: "Suíte Casal"
               },
               {
-                url: "/images/3.jpg",
+                url: "/images/3.webp",
                 title: "Cortina Prega Macho com Xale",
                 desc: "Suíte Casal"
               },
               {
-                url: "/images/4.jpg",
+                url: "/images/4.webp",
                 title: "Cortina Wave",
                 desc: "Área Gourmet"
               },
               {
-                url: "/images/5.jpg",
+                url: "/images/5.webp",
                 title: "Cortina Prega Macho com Xale",
                 desc: "Closet"
                 
               },
               {
-                url: "/images/6.jpg",
+                url: "/images/6.webp",
                 title: "Cortina Prega Macho",
                 desc: "Suíte Casal"
               }
@@ -265,7 +265,7 @@ export default function Home() {
             >
               <div className="absolute top-4 left-4 w-full h-full border-2 border-[#D4AF37]/30 rounded-lg -z-0 translate-x-4 translate-y-4" />
               <img 
-                src="/images/7.jpg" 
+                src="/images/7.webp" 
                 alt="Detalhe de cortina de luxo" 
                 loading="lazy"
                 width="400"   // <-- Adicione isso (Proporção 4)
