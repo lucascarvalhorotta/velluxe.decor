@@ -43,7 +43,11 @@ export default function Home() {
         <div className="absolute inset-0 z-10 bg-[linear-gradient(135deg,rgba(26,34,49,0.75),rgba(42,51,65,0.7))]" />
 
         <div className="relative z-20 container mx-auto px-4 text-center">
-          <div className="animate-in fade-in slide-in-from-bottom-8 duration-700">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
             <span className="inline-block py-1 px-3 border border-[#D4AF37]/50 rounded-full text-[#D4AF37] text-sm tracking-[0.2em] uppercase mb-6 bg-navy-900/30 backdrop-blur-sm">
               Cortinas de Alto Padrão
             </span>
@@ -69,7 +73,7 @@ export default function Home() {
                 Ver Projetos
               </a>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Scroll indicator */}
