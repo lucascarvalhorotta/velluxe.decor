@@ -30,12 +30,12 @@ export default function Home() {
 
       {/* HERO SECTION */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image alterado para tag IMG para acelerar o LCP */}
-        <img 
-          src="/images/hero-bg.webp" 
-          alt="Ambiente de luxo com cortinas sob medida"
-          className="absolute inset-0 z-0 w-full h-full object-cover"
-          fetchPriority="high"
+        {/* Background Image - Modern Luxury Living Room */}
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          style={{ 
+            backgroundImage: `url('/images/hero-bg.webp')`,
+          }}
         />
         
         {/* Overlay gradient */}
