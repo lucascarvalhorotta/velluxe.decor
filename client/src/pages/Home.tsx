@@ -33,7 +33,7 @@ export default function Home() {
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
           style={{ 
-            backgroundImage: `url('/images/hero-bg.jpeg')`,
+            backgroundImage: `url('/images/hero-bg.webp')`,
           }}
         />
         
