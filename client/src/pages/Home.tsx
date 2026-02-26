@@ -237,6 +237,8 @@ export default function Home() {
                   src={project.url}
                   alt="Projeto Velluxe Decor"
                   loading="lazy"
+                  width="400"   // <-- Adicione isso (Proporção 4)
+                  height="500"  // <-- Adicione isso (Proporção 5 - bate com seu aspect-[4/5])
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-[#1a2231]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-center p-6 backdrop-blur-[2px]">
@@ -265,6 +267,8 @@ export default function Home() {
                 src="/images/7.jpg" 
                 alt="Detalhe de cortina de luxo" 
                 loading="lazy"
+                width="400"   // <-- Adicione isso (Proporção 4)
+                height="500"  // <-- Adicione isso (Proporção 5 - bate com seu aspect-[4/5])
                 className="rounded-lg shadow-2xl relative z-10 w-full"
               />
             </motion.div>
